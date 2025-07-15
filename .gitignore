@@ -107,7 +107,4 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Data files (optional - remove if you want to include sample data)
-*.json
-*.csv
-*.html
+
