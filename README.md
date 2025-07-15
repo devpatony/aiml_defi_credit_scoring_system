@@ -35,22 +35,7 @@ We chose a **hybrid ML approach** combining weighted feature scoring with unsupe
 
 ### System Components Overview
 
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐    ┌──────────────────┐
-│   Raw JSON      │───▶│  AaveDataLoader  │───▶│ FeatureEngine   │───▶│ DeFiCreditScorer │
-│  Transaction    │    │                  │    │                 │    │                  │
-│     Data        │    │ • Data parsing   │    │ • 60+ features  │    │ • Weighted model │
-│                 │    │ • Normalization  │    │ • 4 dimensions  │    │ • Ensemble ML    │
-│                 │    │ • Validation     │    │ • Risk patterns │    │ • Score 0-1000   │
-└─────────────────┘    └──────────────────┘    └─────────────────┘    └──────────────────┘
-                                │                        │                        │
-                                ▼                        ▼                        ▼
-                       ┌──────────────────┐    ┌─────────────────┐    ┌──────────────────┐
-                       │   Data Summary   │    │ Feature Matrix  │    │  Analysis &      │
-                       │                  │    │                 │    │ Visualization    │
-                       │ • Volume stats   │    │ • Behavioral    │    │                  │
-                       │ • Asset analysis │    │   indicators    │    │ • Score analysis │
-                       │ • Time ranges    │    │ • Risk signals  │    │ • Charts & plots │
-                       └──────────────────┘    └─────────────────┘    └──────────────────┘
+<img width="856" height="408" alt="image" src="https://github.com/user-attachments/assets/6290e112-bed8-4c44-a797-c02684541242" />
 
 ### 1. Data Processing Layer ('aave_data_loader.py')
 
