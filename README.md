@@ -266,34 +266,43 @@ wallets         • Behavioral segmentation • Interactive HTML charts
 ### Prerequisites
 - Python 3.8+
 - Required packages (install via 'pip install -r requirements.txt')
+- Required packages (install via 'pip install -r requirements.txt')
 
 ### Usage
 
 1. **Install Dependencies**:
+```bash
 pip install -r requirements.txt
+```
 
 2. **Run Credit Scoring**:
-python credit_scorer.py --input sample_transactions.json --output wallet_scores.csv
+```bash
+python credit_scorer.py --input user-wallet-transactions.json --output wallet_scores.csv
+```
 
 3. **Generate Analysis Report**:
+```bash
 python analysis_generator.py --scores wallet_scores.csv
+```
 
 ### Input Data Format
 
 Expected JSON structure:
-   json
+```json
 [
   {
-    "wallet_address": "0x...",
-    "transaction_hash": "0x...",
+    "userWallet": "0x...",
+    "txHash": "0x...",
     "action": "deposit|borrow|repay|redeemunderlying|liquidationcall",
-    "amount": "1000.5",
-    "asset": "USDC",
-    "timestamp": "2023-07-15T10:30:00Z",
-    "gas_used": "150000",
-    "block_number": "17500000"
+    "timestamp": 1629178166,
+    "actionData": {
+      "amount": "2000000000",
+      "assetSymbol": "USDC",
+      "assetPriceUSD": "0.9938"
+    }
   }
 ]
+```
 
 ## Credit Scoring Methodology
 
@@ -328,14 +337,37 @@ Expected JSON structure:
 
 ## Files Structure
 
-├── credit_scorer.py          # Main scoring engine
-├── feature_engineering.py    # Feature extraction logic
-├── analysis_generator.py     # Score analysis and visualization
-├── sample_transactions.json  # Sample data file
-├── requirements.txt          # Python dependencies
-├── README.md                # This file
-└── analysis.md              # Generated analysis report
+├── credit_scorer.py       
+├── feature_engineering.py   
+├── analysis_generator.py    
+├── user-wallet-transactions.json
 
+├── requirements.txt         
+├── README.md                
+└── analysis.md         
+
+## Model Validation
+
+The model is validated through:
+- **Behavioral Consistency**: Scores align with expected risk patterns
+- **Edge Case Handling**: Proper treatment of new wallets, inactive accounts
+- **Expert Review**: Manual validation of extreme scores
+- **Temporal Stability**: Score consistency over time for stable wallets
+
+## Extensibility
+
+The system is designed for easy extension:
+- **New Features**: Add features in 'feature_engineering.py'
+- **Model Updates**: Modify scoring logic in 'credit_scorer.py'
+- **Asset Support**: Extend to new DeFi protocols
+- **Real-time Scoring**: Adapt for streaming transaction data
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Add comprehensive tests
+4. Submit a pull request
 ## Production Results Summary
 
 ### Dataset Processed
