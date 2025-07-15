@@ -2,7 +2,7 @@
 
 ##  DeFi Credit Scoring System - Successfully Completed
 
-Your DeFi credit scoring system has been successfully implemented and executed on your Aave V2 transaction data. Here's what was accomplished:
+This DeFi credit scoring system has been successfully implemented and executed on your Aave V2 transaction data. Here's what was accomplished:
 
 ### Data Processed
 - **100,000 transactions** from your 'user-wallet-transactions.json' file
@@ -87,13 +87,4 @@ python credit_scorer.py --input your_new_data.json --output new_scores.csv
 # Generate analysis
 python analysis_generator.py --scores new_scores.csv --output new_analysis.md
 
-###  GitHub Repository Structure
-
-Your project is ready for GitHub with:
-- Complete README.md with methodology
-- analysis.md with detailed findings
-- All source code files
-- Sample data and results
-- Requirements.txt for dependencies
-
-**The system successfully processed your 91MB dataset and generated comprehensive credit scores with detailed analysis. The scoring model demonstrates strong differentiation between high-risk and low-risk DeFi users based on their transaction patterns.**
+**The system successfully processed the sample transactions file of size 91MB dataset and generated comprehensive credit scores with detailed analysis. The scoring model demonstrates strong differentiation between high-risk and low-risk DeFi users based on their transaction patterns.**
