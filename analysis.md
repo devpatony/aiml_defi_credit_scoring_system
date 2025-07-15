@@ -1,7 +1,5 @@
 # DeFi Credit Score Analysis
 
-*Generated on 2025-07-15 23:07:04*
-
 ## Executive Summary
 
 This analysis examines the credit scoring results for 3497 DeFi wallets based on their Aave V2 protocol transaction behavior. The scoring system assigns credit scores from 0-1000, where higher scores indicate more reliable and sophisticated DeFi usage patterns.
@@ -137,7 +135,3 @@ The credit scoring system employs a multi-factor approach considering:
 - All scores normalized to 0-1000 range
 - Outliers capped at 1st and 99th percentiles
 - Missing data handled through conservative scoring approaches
-
----
-
-*This analysis provides a comprehensive view of DeFi wallet creditworthiness based on on-chain transaction behavior. For questions or additional analysis, please refer to the technical documentation.*
