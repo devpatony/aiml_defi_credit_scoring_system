@@ -56,7 +56,7 @@ Transaction       Behavioral        Risk Flags     Model          Final Score
 
 ### Prerequisites
 - Python 3.8+
-- Required packages (install via `pip install -r requirements.txt`)
+- Required packages (install via 'pip install -r requirements.txt')
 
 ### Usage
 
@@ -119,13 +119,14 @@ Expected JSON structure:
 
 ## Files Structure
 
-├── credit_scorer.py          # Main scoring engine
-├── feature_engineering.py    # Feature extraction logic
-├── analysis_generator.py     # Score analysis and visualization
-├── sample_transactions.json  # Sample data file
-├── requirements.txt          # Python dependencies
-├── README.md                # This file
-└── analysis.md              # Generated analysis report
+├── credit_scorer.py       
+├── feature_engineering.py   
+├── analysis_generator.py    
+├── user-wallet-transactions.json
+
+├── requirements.txt         
+├── README.md                
+└── analysis.md         
 
 ## Model Validation
 
@@ -138,8 +139,8 @@ The model is validated through:
 ## Extensibility
 
 The system is designed for easy extension:
-- **New Features**: Add features in `feature_engineering.py`
-- **Model Updates**: Modify scoring logic in `credit_scorer.py`
+- **New Features**: Add features in 'feature_engineering.py'
+- **Model Updates**: Modify scoring logic in 'credit_scorer.py'
 - **Asset Support**: Extend to new DeFi protocols
 - **Real-time Scoring**: Adapt for streaming transaction data
 
