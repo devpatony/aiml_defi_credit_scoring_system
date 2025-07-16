@@ -99,18 +99,22 @@ We chose a **hybrid ML approach** combining weighted feature scoring with unsupe
 
 **Key Algorithms**:
 # Asset concentration using Herfindahl-Hirschman Index
+```
 def _calculate_asset_concentration(self, df):
     asset_volumes = df.groupby('asset')['amount'].sum()
     shares = asset_volumes / asset_volumes.sum()
     hhi = (shares ** 2).sum()  # Higher = more concentrated
     return hhi
+```
 
 # Bot detection through transaction regularity
+```
 def _detect_bot_like_patterns(self, df):
     time_intervals = df['timestamp'].diff().dt.total_seconds()
     interval_cv = time_intervals.std() / time_intervals.mean()
     bot_score = max(0, 1 - interval_cv * 2)  # Lower CV = more bot-like
     return bot_score
+```
 
 ### 3. Machine Learning Scoring Engine ('credit_scorer.py')
 
@@ -121,9 +125,10 @@ def _detect_bot_like_patterns(self, df):
 **1. Weighted Feature Scoring** ('_calculate_weighted_score()')
 
 # Feature weights based on credit importance
+```
 feature_weights = {
     # Reliability (40% total weight)
-    'repay_consistency_score': 0.15,  
+    'repay_consistency_score: 0.15,  
     'liquidation_frequency': -0.10,   
     'has_liquidations': -0.10,
     'activity_consistency_cv': -0.05,
@@ -144,6 +149,7 @@ feature_weights = {
     'position_size_variance': -0.05,
     'bot_like_regularity': -0.05,
 }
+```
 
 **2. Anomaly Detection** ('IsolationForest')
 - Identifies outlier wallets with unusual behavior patterns
@@ -156,13 +162,13 @@ feature_weights = {
 - Enables population-relative scoring
 
 **4. Heuristic Bonuses** ('_apply_heuristic_bonuses()')
-python
+```python
 if tenure_days > 365: bonus += 50        # Long-term user bonus
 if total_transactions > 50: bonus += 30   # Activity bonus  
 if repay_ratio >= 1.0: bonus += 40       # Perfect repayment
 if liquidation_count > 0: bonus -= 30    # Liquidation penalty
 if bot_like_regularity > 0.7: bonus -= 100  # Bot penalty
-
+```
 #### Score Normalization Process
 
 1. **Feature Scaling**: 'RobustScaler' for outlier resilience
@@ -354,21 +360,31 @@ The system is designed for easy extension:
 ### Environment Setup
 
 # Create virtual environment
+```bash
 python -m venv defi_scoring_env
 source defi_scoring_env/bin/activate  # Linux/Mac
+```
 # or
+```bash
 defi_scoring_env\Scripts\activate     # Windows
+```
 
 # Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ### Running the System
 
 # Score all wallets from transaction data
+```bash
 python credit_scorer.py --input user-wallet-transactions.json --output wallet_scores.csv
+```
 
 # Generate comprehensive analysis
+```bash
 python analysis_generator.py --scores wallet_scores.csv --output analysis.md
+```
 
 
 from credit_scorer import DeFiCreditScorer
