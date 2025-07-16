@@ -47,7 +47,7 @@ We chose a **hybrid ML approach** combining weighted feature scoring with unsupe
 - **'_estimate_gas_used()'**: Estimates gas costs based on transaction type for sophistication scoring
 
 **Input Format Handling**:
-json
+```json
 {
   "userWallet": "0x...",
   "txHash": "0x...", 
@@ -59,9 +59,9 @@ json
     "assetPriceUSD": "0.9938"
   }
 }
-
+```
 **Output Schema**:
-python
+```python
 {
   'wallet_address': '0x...',
   'transaction_hash': '0x...',
@@ -72,7 +72,7 @@ python
   'gas_used': '150000',  # Estimated
   'usd_value': 1987.64   # Calculated
 }
-
+```
 ### 2. Feature Engineering Layer ('feature_engineering.py')
 
 **Purpose**: Extract 60+ behavioral indicators across four key dimensions of DeFi creditworthiness.
@@ -123,8 +123,8 @@ def _detect_bot_like_patterns(self, df):
 # Feature weights based on credit importance
 feature_weights = {
     # Reliability (40% total weight)
-    'repay_consistency_score': 0.15,    # Most important
-    'liquidation_frequency': -0.10,     # Strong negative signal
+    'repay_consistency_score': 0.15,  
+    'liquidation_frequency': -0.10,   
     'has_liquidations': -0.10,
     'activity_consistency_cv': -0.05,
     
