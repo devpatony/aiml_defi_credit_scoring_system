@@ -189,45 +189,19 @@ if bot_like_regularity > 0.7: bonus -= 100  # Bot penalty
 
 ### Phase 1: Data Ingestion & Transformation
 
-Raw Aave JSON → AaveDataLoader → Standardized DataFrame
-     │                │                    │
-     │                ▼                    ▼
- 91MB File      • Parse nested JSON    Clean transaction
-100K records   • Normalize amounts     records ready
-3,497 wallets  • Convert timestamps    for analysis
-               • Calculate USD values
+<img width="570" height="193" alt="image" src="https://github.com/user-attachments/assets/1f8d4a59-a412-4a61-ac57-2742648f6bd9" />
 
 ### Phase 2: Feature Engineering
 
-Transaction DataFrame → FeatureEngineering → Feature Matrix (3,497 × 60)
-         │                      │                        │
-         ▼                      ▼                        ▼
-Per-wallet grouping     Extract 4 dimensions    Behavioral indicators
-                       • Financial behavior     ready for ML
-                       • Risk assessment
-                       • Temporal patterns  
-                       • Network behavior
+<img width="655" height="224" alt="image" src="https://github.com/user-attachments/assets/3a0eb879-b45f-47ef-bdff-cb0d740d1215" />
 
 ### Phase 3: ML Scoring Pipeline
 
-Feature Matrix → DeFiCreditScorer → Credit Scores (0-1000)
-      │               │                      │
-      ▼               ▼                      ▼
-60 features    • Weighted scoring      Final scores with
-per wallet     • Anomaly detection     categories:
-               • Risk clustering       • Excellent (900-1000)
-               • Heuristic bonuses     • Good (700-899)  
-               • Normalization         • Fair (500-699)
-                                      • Poor (300-499)
-                                      • Very Poor (0-299)
+<img width="604" height="269" alt="image" src="https://github.com/user-attachments/assets/b7752892-3032-4c84-be0d-639efb429e8e" />
 
 ### Phase 4: Analysis & Output
-Scored Wallets → AnalysisGenerator → Reports & Visualizations
-      │               │                      │
-      ▼               ▼                      ▼
-3,497 scored    • Distribution analysis   • analysis.md report
-wallets         • Behavioral segmentation • Interactive HTML charts
-                • Risk factor identification • CSV output file
+
+<img width="694" height="169" alt="image" src="https://github.com/user-attachments/assets/b68974d2-61bc-4286-b15c-42dc44c8a6de" />
 
 ## Implementation Workflow
 
