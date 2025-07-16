@@ -98,7 +98,6 @@ python
 - **Technical Patterns**: 'gas_efficiency_score', 'unique_gas_prices'
 
 **Key Algorithms**:
-python
 # Asset concentration using Herfindahl-Hirschman Index
 def _calculate_asset_concentration(self, df):
     asset_volumes = df.groupby('asset')['amount'].sum()
@@ -120,7 +119,7 @@ def _detect_bot_like_patterns(self, df):
 #### Ensemble ML Architecture
 
 **1. Weighted Feature Scoring** ('_calculate_weighted_score()')
-python
+
 # Feature weights based on credit importance
 feature_weights = {
     # Reliability (40% total weight)
@@ -375,27 +374,6 @@ The system is designed for easy extension:
 - **Low-scoring wallets**: 0.73 average liquidations, 53% repayment consistency
 - **Risk differentiation**: Clear behavioral patterns distinguishing credit tiers
 
-## Updated Project Structure
-
-defi-credit-scoring/
-├── core/
-│   ├── credit_scorer.py              # Main ML scoring engine
-│   ├── feature_engineering.py        # 60+ behavioral features
-│   ├── aave_data_loader.py           # Specialized data processor
-│   └── analysis_generator.py         # Reporting & visualization
-├── data/
-│   ├── user-wallet-transactions.json # Production dataset (91MB)
-│   ├── sample_transactions.json      # Testing data
-│   └── wallet_scores.csv             # Generated scores (3,497 wallets)
-├── output/
-│   ├── analysis.md                   # Comprehensive analysis report
-│   ├── score_distribution.html       # Interactive distribution chart
-│   ├── score_histogram.html          # Detailed histogram
-│   └── behavior_comparison.html      # Risk tier comparison
-├── docs/
-│   ├── README.md                     # Complete documentation
-│   └── PROJECT_COMPLETION.md         # Results summary
-└── requirements.txt                  # Python dependencies
 
 ## Production Deployment Guide
 
@@ -418,8 +396,6 @@ python credit_scorer.py --input user-wallet-transactions.json --output wallet_sc
 # Generate comprehensive analysis
 python analysis_generator.py --scores wallet_scores.csv --output analysis.md
 
-### API Integration Ready
-The system is designed for easy API integration:
 
 from credit_scorer import DeFiCreditScorer
 
